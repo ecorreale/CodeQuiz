@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Quiz</title>
+
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript" src="./js/quiz.js"></script>
+</head>
+
+<body>
+    <section id="instructionsPanel" class="welcome">
+        <div class="instructions">
+            <div class="title">Javascript Quiz</div>
+            <div>
+                Welcome to our JavaScript Quiz. You have <span id="timeLimit" class="standOut">_</span> seconds to complete this
+                <span class="qCount standOut">_</span> question Quiz.
+            </div>
+            <div>Each missed question will result in a <span id="penalty" class="standOut">_</span> second time penalty
+            </div>
+            <div>All questions must be answered before the timer reaches 0</div>
+            <div><br /><span class="standOut">Scoring: </span>Your score equals the number of seconds remaining at end of quiz.</div>
+            <div class="startButtonDiv">
+                <button type="button" class="btn btn-danger startButton" onclick="StartQuiz()">"Start Quiz</button>
+            </div>
+
+        </div>
+
+    </section>
+    <section id="quizSection" style="display:none;">
+        <div class="outerBox centered">
+            <div class="card">
+                <div class="card-header small">
+                    <span class="qNumDisplay">Question <span id="qNumber">_</span> of <span class="qCount">_</span></span>
+                    <span class="timerDisplay">Timer: <span id="timer">_</span> Seconds</span>
+                </div>
+                <div class="card-body">
+                    <div id="questionText">
+                        <span id="qText"></span>
+                    </div>
+                    <div id="qChoices" class="qchoices">
+                    </div>
+
+                    <button id="btnPrev" onclick="PrevQuestion()" class="btnPrev"> &lt; Previous</button>
+                    <button id="btnNext" onclick="NextQuestion()" class="btnNext">Next &gt; </button>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="quizCompleteSection" style="display:none;">
+        <div class="ansBox centered">
+            <div class="ansTitle">Quiz Complete</div>
+            <div>
+                <span class="standOut">Score: </span> <span id="score">_</span>
+            </div>
+            <div>
+                You answered <span id="correct" class="standOut">_</span> Out of <span class="qCount standOut">_</span> questions correctly.
+            </div>
+
+            <br />
+            <div>Enter your initials to save your results</div>
+            <label for="initials">Initials:</label>
+            <input type="text" id="initTextBox" name="initials" maxlength="3" size="4">
+
+            <br />
+            <button type="submit" id="btnSave" class="btn btn-primary btn-sm" onclick="saveScore()">Save</button>
+        </div>
+    </section>
+
+    <section id="confSection" style="display:none;">
+        <div id="outerBox">
+            <div class="title">
+                Thank You
+            </div>
+            <div>Your score has been saved on your computer.</div>
+            <br/>
+            <div><span class="standOut">Confirmation</span>
+                <div>Saved under your initials: <span id="savedInitials" class="standOut">_</span></div>
+                <div>Saved Score: <span id="savedScore" class="standOut">_</span></div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
